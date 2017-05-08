@@ -1,0 +1,51 @@
+<div class="container book-container">
+    <h3>Titulos</h3>
+    <div class="row">
+        <div class="col-lg-12">
+            <form class="form-inline" role="form">
+
+                <div class="form-group">
+                    <label for="search">Nombre del libro</label>
+                    <input type="search"  id="search" name="name" placeholder="Buscar...." class="form-control" value="" title="" ng-model="$ctrl.search">
+                </div>
+                <label for="search">Ordenar por</label>
+                <select class="form-control" ng-model="$ctrl.sort" >
+                    <option value="titulo">Titulo</option>
+                    <option value="autor">Autor</option>
+                    
+                </select>
+                <button class="btn btn-default">Buscar</button>
+            </form>
+        </div>
+    </div>
+    <hr>
+
+
+
+
+
+
+    <div ng-repeat="book in $ctrl.books | orderBy:$ctrl.sort: $ctrl.sort === 'count'| filter:$ctrl.search ">
+        <div class="row panel-book">
+            <div class="col-lg-2" >
+                <div class="row">
+                    <a ui-sref="tab({id:book.id - 1})">
+                        <img src="./public/img/{{book.img}}" alt="" class="img-responsive" width="370" height="370">
+                        <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fpagina-libros1234.esy.es%2F%23!%2F&width=153&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId" width="153" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                        <div class="fb-comments" data-href="http://pagina-libros1234.esy.es/#!/" data-numposts="5"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="row">
+                    <h3>{{book.titulo}}</h3>
+                    <p><strong>{{book.autor}}</strong></p>
+                    <p class="text-justify">{{book.descripcion}}</p>
+                  
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+</div>

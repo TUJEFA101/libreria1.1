@@ -1,0 +1,20 @@
+<div class="container-fluid tab-container">
+    <div class="row panel-tab">
+
+        <div class="col-lg-8" >
+            <div class="row">
+                <h1>{{$ctrl.book.titulo}}</h1>
+
+                <img src="./public/img/{{$ctrl.book.img}}" alt="" class="img-responsive">
+
+                <p><strong>{{$ctrl.book.autor}}</strong></p>
+                <p class="text-justify">{{$ctrl.book.descripcion}}</p>
+                <br>
+                <a ui-sref="home">Volver</a> <span>|</span>
+                <a ui-sref="tab({id:$ctrl.nextBook.id - 1})">Siguente libro ({{$ctrl.nextBook.titulo}})</a>
+
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
