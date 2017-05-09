@@ -8,11 +8,22 @@
         .module('bookStore')
         .controller('TabController',TabController);
 
-    TabController.$inject = ['book','nextBook'];
-    function TabController(book,nextBook) {
+    TabController.$inject = ['book','nextBook','BookService','$state'];
+    function TabController(book,nextBook,BookService,$state) {
         var $ctrl = this;
         $ctrl.book = book;
-        console.log(nextBook);
         $ctrl.nextBook = nextBook;
+        $ctrl.comment = {};
+        $ctrl.addComment = function (id,comment) {
+            console.log(comment);
+            if(comment.author === undefined){
+                $ctrl.emailValidate= true;
+                return;
+            }
+            BookService.addComment(id,comment);
+            $ctrl.comment = {};
+            $state.reload();
+        }
+
     }
 })();

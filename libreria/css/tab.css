@@ -2,7 +2,7 @@
     padding: 12px;
     border-radius: 3px;
     margin: 30px;
-    background-color: #ffffff;
+    background-color: #94cfd5;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 .tab-container{
@@ -10,4 +10,10 @@
 }
 .panel-tab *{
     padding:5px;
+}
+.ng-dirty.ng-invalid-email{
+    border:1px solid red;
+}
+.ng-dirty.ng-valid-email{
+    border:1px solid darkgreen;
 }
